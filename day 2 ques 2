@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    double radius, area, circumference;
+    printf("Enter radius: ");
+    if (scanf("%lf", &radius) != 1 || radius < 0) {
+        printf("Invalid input. Radius must be a non-negative number.\n");
+        return 1;
+    }
+    area = M_PI * radius * radius;
+    circumference = 2 * M_PI * radius;
+    printf("Area: %.2lf\n", area);
+    printf("Circumference: %.2lf\n", circumference);
+    return 0;
+}
