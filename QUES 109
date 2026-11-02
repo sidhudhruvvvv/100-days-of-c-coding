@@ -1,0 +1,47 @@
+
+#include <stdio.h>
+
+int main()
+{
+    int a[100], n, k, i, j;
+    int sum, max;
+
+    printf("Enter size of array: ");
+    scanf("%d", &n);
+
+    printf("Enter array elements: ");
+    for(i = 0; i < n; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+
+    printf("Enter value of k: ");
+    scanf("%d", &k);
+
+    if(k < 1 || k > n)
+    {
+        printf("Invalid value of k");
+        return 0;
+    }
+
+    max = -2147483647 - 1;
+
+    for(i = 0; i <= n - k; i++)
+    {
+        sum = 0;
+
+        for(j = i; j < i + k; j++)
+        {
+            sum = sum + a[j];
+        }
+
+        if(sum > max)
+        {
+            max = sum;
+        }
+    }
+
+    printf("Maximum sum = %d", max);
+
+    return 0;
+}
