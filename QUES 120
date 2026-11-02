@@ -1,0 +1,43 @@
+
+#include <stdio.h>
+
+int main()
+{
+    FILE *fp;
+    char text[100];
+
+    // Create and open file
+    fp = fopen("student.txt", "w");
+
+    if(fp == NULL)
+    {
+        printf("File cannot be opened");
+        return 0;
+    }
+
+    printf("Enter some text: ");
+    scanf(" %[^\n]", text);
+
+    // Write data into file
+    fprintf(fp, "%s", text);
+
+    fclose(fp);
+
+    // Open file in read mode
+    fp = fopen("student.txt", "r");
+
+    if(fp == NULL)
+    {
+        printf("File cannot be opened");
+        return 0;
+    }
+
+    // Read data from file
+    fgets(text, 100, fp);
+
+    printf("Data from file: %s", text);
+
+    fclose(fp);
+
+    return 0;
+}
