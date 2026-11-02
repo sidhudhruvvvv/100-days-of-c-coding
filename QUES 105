@@ -1,0 +1,44 @@
+
+#include <stdio.h>
+
+int main()
+{
+    int a[100], n, i, j;
+    int count, found = 0;
+
+    printf("Enter size of array: ");
+    scanf("%d", &n);
+
+    printf("Enter array elements: ");
+    for(i = 0; i < n; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+
+    for(i = 0; i < n; i++)
+    {
+        count = 0;
+
+        for(j = 0; j < n; j++)
+        {
+            if(a[i] == a[j])
+            {
+                count++;
+            }
+        }
+
+        if(count > n / 2)
+        {
+            printf("Majority element = %d", a[i]);
+            found = 1;
+            break;
+        }
+    }
+
+    if(found == 0)
+    {
+        printf("-1");
+    }
+
+    return 0;
+}
