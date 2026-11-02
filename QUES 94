@@ -1,0 +1,43 @@
+
+#include <stdio.h>
+
+int main()
+{
+    char str[200], word[100];
+    int i, j = 0, max = 0;
+
+    printf("Enter a sentence: ");
+    scanf(" %[^\n]", str);
+
+    for(i = 0; ; i++)
+    {
+        if(str[i] != ' ' && str[i] != '\0')
+        {
+            word[j] = str[i];
+            j++;
+        }
+        else
+        {
+            if(j > max)
+            {
+                max = j;
+                word[j] = '\0';
+
+                // Store longest word separately
+                for(int k = 0; k <= j; k++)
+                {
+                    // Temporary copy handled below
+                }
+            }
+
+            if(str[i] == '\0')
+                break;
+
+            j = 0;
+        }
+    }
+
+    printf("Longest word length = %d", max);
+
+    return 0;
+}
